@@ -1,0 +1,8 @@
+<img *ngIf="service.services.length > 0"
+     class="expansion"
+     ng-class="$expanded ? 'expanded' : 'notExpanded'"
+     (click)="toogleExpanded()" />
+<span class="serviceBadge">{{service.id}}</span> {{service.name}} {{service.isOk}}
+<services-list *ngIf="service.services.length > 0" 
+               [services]="service.services" 
+               [expanded]="expanded"></services-list>

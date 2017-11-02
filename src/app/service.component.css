@@ -1,0 +1,12 @@
+img.expansion {
+    width: 32px;
+    height: 32px;    
+}
+
+img.expanded {
+    src: '../assets/minus.png';
+}
+
+img.notExpanded {
+    src: '../assets/plus.png';
+}

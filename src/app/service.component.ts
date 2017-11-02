@@ -15,19 +15,4 @@ export class ServiceComponent {
   toogleExpanded(): void {
     this.expanded = !this.expanded;    
   }
-
-  getExpandIcon(): string {
-    var ret:string;
-    if (this.service.services.length > 0) {
-      if (this.expanded) {
-        ret = '../assets/minus.png';
-      } else {
-        ret = '../assets/plus.png';
-      }      
-    } else {
-      ret = '../assets/transparent.png';
-    }
-
-    return ret;
-  }
 }

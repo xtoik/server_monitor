@@ -11,6 +11,14 @@ img.collapsed {
     content: url('../assets/plus.png');
 }
 
+.isOk {
+    color: rgba(0, 153, 0, 0.8);
+}
+
+.isNotOk {
+    color: rgba(255, 0, 0, 0.8);
+}
+
 img.green {
     content: url('../assets/greenLight.png');
 }

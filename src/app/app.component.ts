@@ -10,17 +10,17 @@ import { ServicesListComponent } from './services-list.component';
 })
 export class AppComponent {
   services: Service[] = [
-    { id: 1, name: "Mahou", isOk: true, services: [] },
+    { id: 1, name: "Client 1", isOk: true, services: [] },
     { 
       id: 2, 
-      name: "Carlsberg", 
+      name: "Client 2", 
       isOk: true, 
       services: [
-        { id: 3, name: "Carlsberg-SQL", isOk: true, services: [] },
-        { id: 4, name: "Carlsberg-HTTP", isOk: true, services: [] }
+        { id: 3, name: "Client 2-SQL", isOk: true, services: [] },
+        { id: 4, name: "Client 2-HTTP", isOk: true, services: [] }
       ] 
     },
-    { id: 5, name: "AB InBev", isOk: false, services: [] }
+    { id: 5, name: "Client 3", isOk: false, services: [] }
   ];
   title = 'Server Monitor';
 }

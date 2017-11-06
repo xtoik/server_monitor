@@ -1,5 +1,5 @@
 <ul class="services" *ngIf="expanded">
     <li *ngFor="let service of services">
-        <service [service]="service"></service>
+        <service [service]="service" [isChild]="isChild"></service>
     </li>
 </ul>

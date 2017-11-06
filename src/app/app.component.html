@@ -7,5 +7,5 @@
 </div>
 
 <h2>Services:</h2>
-<services-list *ngIf="services.length > 0" [services]="services" [expanded]="true"></services-list>
+<services-list *ngIf="services.length > 0" [services]="services" [expanded]="true" [isChild]="false"></services-list>
 <h3 *ngIf="services.length === 0"></h3>

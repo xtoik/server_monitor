@@ -1,28 +1,9 @@
-img {
-    width: 32px;
-    height: 32px;    
-}
-
-img.expanded {
-    content: url('../assets/minus.png');
-}
-
-img.collapsed {
-    content: url('../assets/plus.png');
-}
-
 .isOk {
     color: rgba(0, 153, 0, 0.8);
+    vertical-align: bottom;
 }
 
 .isNotOk {
     color: rgba(255, 0, 0, 0.8);
-}
-
-img.green {
-    content: url('../assets/greenLight.png');
-}
-
-img.red {
-    content: url('../assets/redLight.png');
+    vertical-align: bottom;
 }

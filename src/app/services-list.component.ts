@@ -6,9 +6,11 @@ import { ServiceComponent } from './service.component';
 
 @Component({
   selector: 'services-list',
-  templateUrl: './services-list.component.html'
+  templateUrl: './services-list.component.html',
+  styleUrls: ['./services-list.component.css']
 })
 export class ServicesListComponent {
   @Input() services : Service[]; 
   @Input() expanded : boolean = false; 
+  @Input() isChild: boolean = false;
 }

@@ -9,8 +9,9 @@ import { Service } from './dtos/service';
 })
 export class ServiceComponent {
   @Input() service: Service;
+  @Input() isChild: boolean = false;
 
-  expanded: boolean = false;
+  expanded: boolean = false;  
 
   toogleExpanded(): void {
     this.expanded = !this.expanded;    

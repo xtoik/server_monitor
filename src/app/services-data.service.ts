@@ -27,7 +27,27 @@ export class ServicesDataService {
     { id: 30, name: "Client 3", isOk: false, services: [] }
   ];
 
-  constructor() { }
+  count:number = 0;
+  timer;
+
+  constructor() { 
+    this.timer = Observable.timer(2000, 2000);
+    this.timer.subscribe(t => {
+      this.changeServicesStatus(t);
+    });
+  }
+
+  changeServicesStatus(tick): void {
+    this.count++;
+
+    this.services[0].isOk = this.count % 2 == 0;
+
+    this.services[1].isOk = this.count % 2 == 1;
+    this.services[1].services[0].isOk = this.count % 2 == 1;
+    this.services[1].services[0].services[0].isOk = this.count % 2 == 1;
+    this.services[1].services[0].services[0].services[1].isOk = this.count % 2 == 1;
+    this.services[1].services[0].services[0].services[1].services[0].isOk = this.count % 2 == 1;
+  }
 
   getServices(): Observable<Service[]> {
     return of(this.services);

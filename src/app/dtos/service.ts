@@ -3,5 +3,5 @@ export class Service {
     name: string;
     isOk: boolean;
 
-    services: Service[];
+    services: Service[];   
 }

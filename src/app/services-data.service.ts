@@ -42,10 +42,10 @@ export class ServicesDataService {
 
     this.services[0].isOk = this.count % 2 == 0;
 
-    this.services[1].isOk = this.count % 2 == 1;
-    this.services[1].services[0].isOk = this.count % 2 == 1;
-    this.services[1].services[0].services[0].isOk = this.count % 2 == 1;
-    this.services[1].services[0].services[0].services[1].isOk = this.count % 2 == 1;
+    //this.services[1].isOk = this.count % 2 == 1;
+    //this.services[1].services[0].isOk = this.count % 2 == 1;
+    //this.services[1].services[0].services[0].isOk = this.count % 2 == 1;
+    //this.services[1].services[0].services[0].services[1].isOk = this.count % 2 == 1;
     this.services[1].services[0].services[0].services[1].services[0].isOk = this.count % 2 == 1;
   }
 

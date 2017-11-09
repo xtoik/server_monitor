@@ -10,7 +10,8 @@
     </button>
     <span class="serviceBadge" 
           [@serviceStatusOk]="service.isOk">{{service.name}}</span>
-    <mat-icon *ngIf="service.isOk" class="isOk">check</mat-icon>
+    <mat-icon *ngIf="service.isOk && areChildrenOk(service)" class="isOk">check</mat-icon>
+    <mat-icon *ngIf="service.isOk && !areChildrenOk(service)" class="isNotOk">warning</mat-icon>
     <mat-icon *ngIf="!service.isOk" class="isNotOk">close</mat-icon>
 </span>
 <services-list *ngIf="service.services.length > 0" 

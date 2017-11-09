@@ -50,4 +50,14 @@ export class ServiceComponent {
   toogleExpanded(): void {
     this.expanded = !this.expanded;    
   }
+
+  areChildrenOk(svc: Service): boolean {
+    for(let childService of svc.services){
+        if(!childService.isOk || !this.areChildrenOk(childService)){
+            return false;
+        }
+    } 
+
+    return true;
+}
 }

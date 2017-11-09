@@ -11,6 +11,10 @@ import { ServiceComponent } from './service.component';
 })
 export class ServicesListComponent {
   @Input() services : Service[]; 
-  @Input() expanded : boolean = false; 
-  @Input() isChild: boolean = false;
+  @Input() expanded : boolean = false;
+  @Input() level: number;
+  
+  isChild() {
+    return this.level > 0;
+  }
 }

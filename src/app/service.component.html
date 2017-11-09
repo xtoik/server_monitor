@@ -1,5 +1,5 @@
 <span class="serviceBadge">
-    <mat-icon *ngIf="isChild">subdirectory_arrow_right</mat-icon>
+    <mat-icon *ngIf="level > 1">subdirectory_arrow_right</mat-icon>
     <button mat-icon-button *ngIf="service.services.length > 0 && !expanded"
             (click)="toogleExpanded()">
         <mat-icon>expand_more</mat-icon>
@@ -15,4 +15,4 @@
 <services-list *ngIf="service.services.length > 0" 
                [services]="service.services" 
                [expanded]="expanded"
-               [isChild]="true"></services-list>
+               [level]="level"></services-list>

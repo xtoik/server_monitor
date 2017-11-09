@@ -1,5 +1,6 @@
-<ul class="services" *ngIf="expanded">
-    <li *ngFor="let service of services">
-        <service [service]="service" [isChild]="isChild"></service>
+<ul class="services" [class.isChild]="isChild" *ngIf="expanded">
+    <li *ngFor="let service of services"
+        [class.isDeepChild]="level > 1">
+        <service [service]="service" [level]="level + 1"></service>
     </li>
 </ul>

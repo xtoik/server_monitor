@@ -9,7 +9,7 @@ import { Service } from './dtos/service';
 })
 export class ServiceComponent {
   @Input() service: Service;
-  @Input() isChild: boolean = false;
+  @Input() level: number;
 
   expanded: boolean = false;  
 

@@ -8,7 +8,7 @@
             (click)="toogleExpanded()">
         <mat-icon>expand_less</mat-icon>
     </button>
-    {{service.name}}
+    <span [@serviceStatusOk]="service.isOk">{{service.name}}</span>
     <mat-icon *ngIf="service.isOk" class="isOk">check</mat-icon>
     <mat-icon *ngIf="!service.isOk" class="isNotOk">close</mat-icon>
 </span>

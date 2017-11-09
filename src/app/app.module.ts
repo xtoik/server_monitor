@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { Input } from '@angular/core';
+import { NgModule, Input, Injectable } from '@angular/core';
 import { MatIconModule } from '@angular/material';
 
+import { ServicesDataService } from './services-data.service'
 import { AppComponent } from './app.component';
 import { ServicesListComponent } from './services-list.component';
 import { ServiceComponent } from './service.component';
@@ -17,7 +17,9 @@ import { ServiceComponent } from './service.component';
     BrowserModule,
     MatIconModule
   ],
-  providers: [],
+  providers: [
+    ServicesDataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

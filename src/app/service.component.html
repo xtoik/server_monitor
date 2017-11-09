@@ -1,4 +1,4 @@
-<span class="serviceBadge">
+<span>
     <mat-icon *ngIf="level > 1">subdirectory_arrow_right</mat-icon>
     <button mat-icon-button *ngIf="service.services.length > 0 && !expanded"
             (click)="toogleExpanded()">
@@ -8,7 +8,8 @@
             (click)="toogleExpanded()">
         <mat-icon>expand_less</mat-icon>
     </button>
-    <span [@serviceStatusOk]="service.isOk">{{service.name}}</span>
+    <span class="serviceBadge" 
+          [@serviceStatusOk]="service.isOk">{{service.name}}</span>
     <mat-icon *ngIf="service.isOk" class="isOk">check</mat-icon>
     <mat-icon *ngIf="!service.isOk" class="isNotOk">close</mat-icon>
 </span>

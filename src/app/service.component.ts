@@ -4,7 +4,8 @@ import {
   state,
   style,
   animate,
-  transition
+  transition,
+  keyframes
 } from '@angular/animations';
 
 import { Service } from './dtos/service';
@@ -15,14 +16,28 @@ import { Service } from './dtos/service';
   styleUrls: [ './service.component.css' ],
   animations: [
     trigger('serviceStatusOk', [
-      state('false', style({
-        color: '#ee0000'
+      state('false',  style({
+        color: '#ff0000'
       })),
       state('true', style({
         color: 'inherit'
       })),
-      transition('isOk => isNotOk', animate('100ms ease-in')),
-      transition('isNotOk => isOk', animate('100ms ease-out'))
+      transition('true => false', 
+          animate('1s ease-out', keyframes([
+            style({ color: '#330000' }),
+            style({ color: '#660000' }),
+            style({ color: '#990000' }),
+            style({ color: '#cc0000' }),
+            style({ color: '#ff0000' })
+          ]))),
+      transition('false => true', 
+          animate('1s ease-out', keyframes([
+            style({ color: '#cc0000' }),
+            style({ color: '#990000' }),
+            style({ color: '#660000' }),
+            style({ color: '#330000' }),
+            style({ color: '#000000' })
+          ])))
     ])
   ]
 })

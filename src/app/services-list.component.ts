@@ -17,16 +17,16 @@ import { ServiceComponent } from './service.component';
   templateUrl: './services-list.component.html',
   styleUrls: ['./services-list.component.css'],
   animations: [
-    trigger('expand', [
-      state('true', style({height: '*'})),
-      transition('true => false', [
-        style({height: '*'}),
-        animate(1000, style({height: 0}))
+    trigger('collapse', [
+      state('in', style({height: '*', opacity: 1})),
+      transition('* => void', [
+        style({height: '*', opacity: 1}),
+        animate('300ms ease-in', style({height: 0, opacity: 0}))
       ]),
-      transition('false => true', [
-        style({height: 0}),
-        animate(1000, style({height: '*'}))
-      ]),
+      transition('void => *', [
+        style({height: 0, opacity: 0}),
+        animate('300ms ease-out', style({height: '*', opacity: 1}))
+      ])      
     ])
   ]
 })

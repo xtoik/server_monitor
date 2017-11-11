@@ -3,6 +3,11 @@
     vertical-align: bottom;
 }
 
+.isWarning {
+    color: rgb(255, 204, 0);
+    vertical-align: bottom;
+}
+
 .isNotOk {
     color: rgba(255, 0, 0, 0.8);
     vertical-align: bottom;

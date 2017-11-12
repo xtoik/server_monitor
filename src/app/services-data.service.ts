@@ -1,12 +1,13 @@
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Rx';: Service[]
 import { of } from 'rxjs/observable/of';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Injectable } from '@angular/core';
 import { Service } from './dtos/service'
 
 @Injectable()
 export class ServicesDataService {
-  services: Service[] = [
+  services = [
     { id: 10, name: "Client 1", isOk: true, services: [] },
     { 
       id: 20, 
@@ -29,8 +30,9 @@ export class ServicesDataService {
 
   count:number = 0;
   timer;
+  private servicesUrl = 'api/services';
 
-  constructor() { 
+  constructor(private http: HttpClient) { 
     this.timer = Observable.timer(2000, 2000);
     this.timer.subscribe(t => {
       this.changeServicesStatus(t);
@@ -51,5 +53,6 @@ export class ServicesDataService {
 
   getServices(): Observable<Service[]> {
     return of(this.services);
+    //return this.http.get<Service[]>(this.servicesUrl);
   }
 }

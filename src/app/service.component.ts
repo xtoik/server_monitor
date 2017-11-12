@@ -16,13 +16,16 @@ import { Service } from './dtos/service';
   styleUrls: [ './service.component.css' ],
   animations: [
     trigger('serviceStatusOk', [
-      state('false',  style({
+      state('notOk',  style({
         color: '#ff0000'
       })),
-      state('true', style({
-        color: 'inherit'
+      state('ok', style({
+        color: '#000000'
       })),
-      transition('true => false', 
+      state('childrenNotOk',  style({
+        color: '#ffcc00'
+      })),
+      transition('ok => notOk', 
           animate('1s ease-out', keyframes([
             style({ color: '#330000' }),
             style({ color: '#660000' }),
@@ -30,16 +33,32 @@ import { Service } from './dtos/service';
             style({ color: '#cc0000' }),
             style({ color: '#ff0000' })
           ]))),
-      transition('false => true', 
+      transition('notOk => ok', 
           animate('1s ease-out', keyframes([
             style({ color: '#cc0000' }),
             style({ color: '#990000' }),
             style({ color: '#660000' }),
             style({ color: '#330000' }),
             style({ color: '#000000' })
+          ]))),
+      transition('ok => childrenNotOk', 
+          animate('1s ease-out', keyframes([
+            style({ color: '#332600' }),
+            style({ color: '#665200' }),
+            style({ color: '#997800' }),
+            style({ color: '#cca400' }),
+            style({ color: '#ffcc00' })
+          ]))),
+      transition('childrenNotOk => ok', 
+          animate('1s ease-out', keyframes([
+            style({ color: '#cca400' }),
+            style({ color: '#997800' }),
+            style({ color: '#665200' }),
+            style({ color: '#332600' }),
+            style({ color: '#000000' })
           ])))
     ])
-  ]
+  ]  
 })
 export class ServiceComponent {
   @Input() service: Service;
@@ -52,12 +71,27 @@ export class ServiceComponent {
   }
 
   areChildrenOk(svc: Service): boolean {
-    for(let childService of svc.services){
-        if(!childService.isOk || !this.areChildrenOk(childService)){
+    for (let childService of svc.services){
+        if (!childService.isOk || !this.areChildrenOk(childService)){
             return false;
         }
     } 
 
     return true;
-}
+  }
+  
+  getServiceStatus(): string {
+    let ret: string;
+    if (this.service.isOk) {
+      if (this.areChildrenOk(this.service)) {
+        ret = 'ok';
+      } else {
+        ret = 'childrenNotOk';
+      }
+    } else {
+      ret = 'notOk';
+    }
+
+    return ret;
+  }
 }

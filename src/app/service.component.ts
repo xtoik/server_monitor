@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, DoCheck } from '@angular/core';
 import {
   trigger,
   state,
@@ -60,14 +60,26 @@ import { Service } from './dtos/service';
     ])
   ]  
 })
-export class ServiceComponent {
+export class ServiceComponent implements DoCheck {
   @Input() service: Service;
   @Input() level: number;
 
-  expanded: boolean = false;  
+  expanded: boolean = false;
+  toogledByUser: boolean = false;
+
+  ngDoCheck() {
+    if (!this.toogledByUser) {
+      if (!this.expanded && !this.areChildrenOk(this.service)) {
+        this.expanded = true;
+      } else if (this.expanded && this.areChildrenOk(this.service)) {
+        this.expanded = false;
+      }
+    }
+  }
 
   toogleExpanded(): void {
     this.expanded = !this.expanded;
+    this.toogledByUser = true; 
   }
 
   areChildrenOk(svc: Service): boolean {

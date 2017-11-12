@@ -1,10 +1,10 @@
 <span>
     <mat-icon *ngIf="level > 1">subdirectory_arrow_right</mat-icon>
-    <button mat-icon-button *ngIf="service.services.length > 0 && !expanded && areChildrenOk(service)"
+    <button mat-icon-button *ngIf="service.services.length > 0 && !expanded"
             (click)="toogleExpanded()">
         <mat-icon>expand_more</mat-icon>
     </button>        
-    <button mat-icon-button *ngIf="service.services.length > 0 && (expanded  || !areChildrenOk(service))"
+    <button mat-icon-button *ngIf="service.services.length > 0 && expanded"
             (click)="toogleExpanded()">
         <mat-icon>expand_less</mat-icon>
     </button>
@@ -16,5 +16,5 @@
 </span>
 <services-list *ngIf="service.services.length > 0" 
                [services]="service.services" 
-               [expanded]="expanded || !areChildrenOk(service)"
+               [expanded]="expanded"
                [level]="level"></services-list>

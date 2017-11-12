@@ -48,7 +48,7 @@ export class ServiceComponent {
   expanded: boolean = false;  
 
   toogleExpanded(): void {
-    this.expanded = !this.expanded;    
+    this.expanded = !this.expanded;
   }
 
   areChildrenOk(svc: Service): boolean {

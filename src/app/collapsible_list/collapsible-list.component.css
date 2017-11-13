@@ -1,0 +1,19 @@
+.objects {
+    list-style-type: none; 
+    margin: 0;
+    padding: 0;
+}
+
+.list {
+    overflow: hidden;
+    width: '*';
+    height: '*';
+}
+
+ul.isChild {
+    margin-left: 1em
+}
+
+li.isDeepChild {
+    margin-left: 1.7em;
+}

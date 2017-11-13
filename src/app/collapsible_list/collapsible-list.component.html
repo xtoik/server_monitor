@@ -1,0 +1,11 @@
+<div class="list"
+     *ngIf="expanded"
+     [@collapse]="expanded">
+    <ul class="objects" 
+        [class.isChild]="isChild">
+        <li *ngFor="let object of objects"
+            [class.isDeepChild]="level > 1">
+            <ng-content></ng-content>
+        </li>
+    </ul>
+</div> 

@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs/Rx';: Service[]
+import { Observable } from 'rxjs/Rx';
 import { of } from 'rxjs/observable/of';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 

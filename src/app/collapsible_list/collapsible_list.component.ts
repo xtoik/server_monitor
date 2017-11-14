@@ -27,5 +27,7 @@ import {
 })
 export class CollapsibleListComponent {
     @Input() expanded : boolean;
-    @Input() objects : object[];
+    @Input() list : object[];
+
+    @Input() level:number = 0;
 }

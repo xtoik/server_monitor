@@ -8,7 +8,7 @@
         [class.isChild]="isChild">
         <li *ngFor="let item of list"
             [class.isDeepChild]="level > 1">
-            <ng-content *ngTemplateOutlet="childContent"></ng-content>
+            <ng-container *ngTemplateOutlet="childContent"></ng-container>
         </li>
     </ul>
 </div> 

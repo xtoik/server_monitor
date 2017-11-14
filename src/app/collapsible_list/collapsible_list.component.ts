@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ContentChildren, Type } from '@angular/core';
 import {
     trigger,
     state,
@@ -28,6 +28,5 @@ import {
 export class CollapsibleListComponent {
     @Input() expanded : boolean;
     @Input() list : object[];
-
-    @Input() level:number = 0;
+    @Input() level: number = 0;
 }

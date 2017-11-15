@@ -1,0 +1,14 @@
+<li [class.isDeepChild]="level > 1">
+    <span>
+        <mat-icon *ngIf="level > 1">subdirectory_arrow_right</mat-icon>
+        <button mat-icon-button *ngIf="!expanded"
+                (click)="toogleExpanded()">
+            <mat-icon>expand_more</mat-icon>
+        </button>        
+        <button mat-icon-button *ngIf="expanded"
+                (click)="toogleExpanded()">
+            <mat-icon>expand_less</mat-icon>
+        </button>
+        <ng-content></ng-content>
+    </span>
+</li>

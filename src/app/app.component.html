@@ -6,7 +6,6 @@
 <h3 *ngIf="services.length === 0">No services</h3>
 
 <h2>Test</h2>
-<collist expanded="true"
-         [list]="services">
-    kk
+<collist expanded="true">
+    <collist-item *ngFor="let service of services">{{service.name}}</collist-item>
 </collist>

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { Service } from './dtos/service';
 import { ServicesDataService } from './services-data.service'
-import { ServicesListComponent } from './services-list.component';
 
 @Component({
   selector: 'app-root',

@@ -9,7 +9,7 @@ import { ServicesDataService } from './services-data.service'
 import { AppComponent } from './app.component';
 import { ServicesListComponent } from './services-list.component';
 import { ServiceComponent } from './service.component';
-import { CollapsibleListComponent } from './collapsible_list/collapsible_list.component'
+import { CollapsibleListComponent } from './collapsible-list/collapsible-list.component'
 import { InMemoryDataService }  from './in-memory-data.service';
 
 @NgModule({

@@ -1,4 +1,4 @@
-import { Component, Input, ContentChildren, Type } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {
     trigger,
     state,

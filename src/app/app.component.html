@@ -7,5 +7,13 @@
 
 <h2>Test</h2>
 <collist expanded="true">
-    <collist-item *ngFor="let service of services">{{service.name}}</collist-item>
+    <collist-item *ngFor="let service of services">
+        {{service.name}}
+        <collist [expanded]="false"
+                 *ngIf="service.services != null && service.services.length > 0">
+            <collist-item *ngFor="let childService of service.services">
+                {{childService.name}}
+            </collist-item>
+        </collist>
+    </collist-item>
 </collist>

@@ -2,7 +2,7 @@
      *ngIf="expanded"
      [@collapse]="expanded">
     <ul class="objects" 
-        [class.isChild]="isChild">
+        [class.isChild]="level > 0">
         <ng-content></ng-content>
     </ul>
 </div> 

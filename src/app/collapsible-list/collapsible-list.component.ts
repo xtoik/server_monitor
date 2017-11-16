@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { AfterContentInit, Component, ContentChild, forwardRef, Input } from '@angular/core';
 import {
     trigger,
     state,
@@ -6,6 +6,8 @@ import {
     animate,
     transition
   } from '@angular/animations';
+
+import { CollapsibleListItemComponent } from './collapsible-list-item.component';
 
 @Component({
     selector: 'collist',
@@ -25,7 +27,15 @@ import {
       ])
     ]
 })
-export class CollapsibleListComponent {
+export class CollapsibleListComponent implements AfterContentInit {
     @Input() expanded : boolean;
-    @Input() level: number = 0;
+    level: number;
+    @ContentChild(forwardRef(() => CollapsibleListItemComponent)) child: CollapsibleListItemComponent;
+
+    ngAfterContentInit() {
+      if (this.child != null) {
+        console.log("setting the level " + (this.level + 1) + " to child list");
+        this.child.level = this.level + 1;
+      }
+    }
 }

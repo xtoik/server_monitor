@@ -6,7 +6,7 @@ import {
     animate,
     transition
   } from '@angular/animations';
-
+import { Collapsible } from './collapsible.interface'
 import { CollapsibleListItemComponent } from './collapsible-list-item.component';
 
 @Component({
@@ -27,15 +27,28 @@ import { CollapsibleListItemComponent } from './collapsible-list-item.component'
       ])
     ]
 })
-export class CollapsibleListComponent implements AfterContentInit {
+export class CollapsibleListComponent extends Collapsible implements AfterContentInit {
+    _level: number = 0;
     @Input() expanded : boolean;
-    level: number;
     @ContentChild(forwardRef(() => CollapsibleListItemComponent)) child: CollapsibleListItemComponent;
 
-    ngAfterContentInit() {
+    get level(): number {
+      return this._level;        
+    }
+
+    @Input()
+    set level(value: number) {
+      this._level = value;
       if (this.child != null) {
-        console.log("setting the level " + (this.level + 1) + " to child list");
-        this.child.level = this.level + 1;
+        console.log("setting the level " + (this._level + 1) + " to children");
+        this.child.level = this._level + 1;
       }
+    }    
+
+    ngAfterContentInit() {   
+    }
+
+    isChild(): boolean {
+      return this.level > 0
     }
 }

@@ -15,8 +15,8 @@
                 {{childService.name}}
                 <collist [expanded]="false"
                          *ngIf="childService.services != null && childService.services.length > 0">
-                    <collist-item *ngFor="let nieceService of childService.services">
-                        {{nieceService.name}}
+                    <collist-item *ngFor="let grandChildService of childService.services">
+                        {{grandChildService.name}}
                     </collist-item>
                 </collist>
             </collist-item>

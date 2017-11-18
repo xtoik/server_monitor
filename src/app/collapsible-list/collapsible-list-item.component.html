@@ -1,4 +1,4 @@
-<li [class.isDeepChild]="level > 1">
+<li [class.isDeepChild]="level > 2">
     <span>
         <mat-icon *ngIf="level > 1">subdirectory_arrow_right</mat-icon>
         <button mat-icon-button *ngIf="child != null && !child.expanded"

@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, ContentChild, forwardRef, Input } from '@angular/core';
+import { AfterContentInit, Component, ContentChildren, forwardRef, Input, QueryList } from '@angular/core';
 import {
     trigger,
     state,
@@ -30,7 +30,7 @@ import { CollapsibleListItemComponent } from './collapsible-list-item.component'
 export class CollapsibleListComponent extends Collapsible implements AfterContentInit {
     _level: number = 0;
     @Input() expanded : boolean;
-    @ContentChild(forwardRef(() => CollapsibleListItemComponent)) child: CollapsibleListItemComponent;
+    @ContentChildren(forwardRef(() => CollapsibleListItemComponent)) children: QueryList<CollapsibleListItemComponent>;
 
     get level(): number {
       return this._level;        
@@ -39,13 +39,16 @@ export class CollapsibleListComponent extends Collapsible implements AfterConten
     @Input()
     set level(value: number) {
       this._level = value;
-      if (this.child != null) {
-        console.log("setting the level " + (this._level + 1) + " to children");
-        this.child.level = this._level + 1;
+      if (this.children != null) {
+        this.children.forEach(child => {
+          child.level = this._level + 1;
+          console.log("setting the level " + (this._level + 1) + " to children");
+        });
       }
     }    
 
-    ngAfterContentInit() {   
+    ngAfterContentInit() {
+      this.level = this._level;
     }
 
     isChild(): boolean {

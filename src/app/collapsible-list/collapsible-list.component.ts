@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, ContentChildren, forwardRef, Input, QueryList } from '@angular/core';
+import { AfterContentInit, Component, ContentChildren, Input, QueryList } from '@angular/core';
 import {
     trigger,
     state,
@@ -30,7 +30,7 @@ import { CollapsibleListItemComponent } from './collapsible-list-item.component'
 export class CollapsibleListComponent extends Collapsible implements AfterContentInit {
     _level: number = 0;
     @Input() expanded : boolean;
-    @ContentChildren(forwardRef(() => CollapsibleListItemComponent)) children: QueryList<CollapsibleListItemComponent>;
+    @ContentChildren(CollapsibleListItemComponent) children: QueryList<CollapsibleListItemComponent>;
 
     get level(): number {
       return this._level;        
